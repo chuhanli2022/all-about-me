@@ -43,6 +43,20 @@ In the host editor, edit the introductions, questions, answer options, and story
 
 Uploaded media belongs to the deployment's R2 storage. A photo URL copied from another deployment will not carry that photo over. This export deliberately has empty media arrays; upload your own images and video on your deployment.
 
+## What are Workers, D1, and R2?
+
+These are three Cloudflare services that work together to run the online game:
+
+| Service | What it is | What this game uses it for |
+| --- | --- | --- |
+| **Workers** | Runs the backend code on Cloudflare servers. | Creates rooms, handles players joining and submitting answers, calculates scores, and serves game updates. |
+| **D1** | A managed SQL database, based on SQLite, for structured data. | Stores room state, quiz text, player names, answers, and scores. |
+| **R2** | Object storage for files, such as images and videos. | Stores the photos and videos uploaded in the host editor. |
+
+D1 holds the game records; R2 holds the media files. Workers reads and writes both. In the configuration, `DB` is the name the code uses to access D1, and `BUCKET` is the name it uses to access R2.
+
+Local development uses emulated storage on your computer. An online deployment needs its own provisioned database and media bucket. Players do not need Cloudflare, Codex, or ChatGPT accounts to join a publicly accessible game.
+
 ## Deploy
 
 The app requires a server runtime and persistent storage. **GitHub hosts this source repository; GitHub Pages alone cannot run the multiplayer server.**
