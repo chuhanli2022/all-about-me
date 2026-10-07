@@ -2,7 +2,7 @@
 
 A browser-based trivia game for team introductions, new-hire welcomes, and small group events. One host controls the pages; up to 30 players join with a room code and a name. No ChatGPT login is required by the game.
 
-This reusable source export contains generic questions only. It does not include the original author's personal quiz, photos, video, production room data, credentials, or Git history.
+This reusable project contains generic questions only. It does not include the original author's personal quiz, photos, video, production room data, credentials, or Git history.
 
 ## Features
 
